@@ -16,7 +16,7 @@ c = b.transpose()
 d = reduce(lambda x,y: x+y,c)
 
 #segmenting the signal to one minute each to find the accurate Heart rate
-d1 = d[0:12000]
+d1 = d[:12000]
 d2 = d[12000:24000]
 d3 = d[24000:36000]
 d4 = d[36000:48000]
@@ -24,15 +24,15 @@ d5 = d[48000:60000]
 
 #find the peaks of the signal,Heart Rate and plot it
 m1,n1 = find_peaks(d1, distance=125)
-HR1 = int(len(m1))
+HR1 = len(m1)
 m2,n2 = find_peaks(d2, distance=125)
-HR2 = int(len(m2))
+HR2 = len(m2)
 m3,n3 = find_peaks(d3, distance=125)
-HR3 = int(len(m3))
+HR3 = len(m3)
 m4,n4 = find_peaks(d4, distance=125)
-HR4 = int(len(m4))
+HR4 = len(m4)
 m5,n5 = find_peaks(d5, distance=125)
-HR5 = int(len(m5))
+HR5 = len(m5)
 HR = (HR1+HR2+HR3+HR4+HR5)/5
 print("Heart Rate(using ECG)=",int(HR),"BPM")
 
@@ -61,7 +61,7 @@ r = q.transpose()
 
 #to remove the extra square braces from the signal values
 s = reduce(lambda x,y: x+y,r)
-s1 = s[0:12000]
+s1 = s[:12000]
 s2 = s[12000:24000]
 s3 = s[24000:36000]
 s4 = s[36000:48000]
@@ -69,15 +69,15 @@ s5 = s[48000:60000]
 
 #find the peaks of the signal,Heart Rate and plot it
 u1,v1 = find_peaks(s1, distance=100)
-Hr1 = int(len(u1))
+Hr1 = len(u1)
 u2,v2 = find_peaks(s2, distance=100)
-Hr2 = int(len(u2))
+Hr2 = len(u2)
 u3,v3 = find_peaks(s3, distance=100)
-Hr3 = int(len(u3))
+Hr3 = len(u3)
 u4,v4 = find_peaks(s4, distance=100)
-Hr4 = int(len(u4))
+Hr4 = len(u4)
 u5,v5 = find_peaks(s5, distance=100)
-Hr5 = int(len(u5))
+Hr5 = len(u5)
 Hr = (Hr1+Hr2+Hr3+Hr4+Hr5)/5
 print("Heart Rate(using PPG)=",int(Hr),"BPM")
 
